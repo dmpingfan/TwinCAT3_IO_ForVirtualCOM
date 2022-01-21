@@ -1,0 +1,199 @@
+<?xml version="1.0"?>
+<TcSmProject xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://www.beckhoff.com/schemas/2012/07/TcSmProject" TcSmVersion="1.0" TcVersion="3.1.4024.22">
+	<DataTypes>
+		<DataType>
+			<Name GUID="{0F4327DA-3517-47F7-8CED-53445063A2A3}" PersistentType="true">EL1008</Name>
+			<BitSize>64</BitSize>
+			<SubItem>
+				<Name>Ch1bBitIn</Name>
+				<Type GUID="{18071995-0000-0000-0000-000000000030}">BOOL</Type>
+				<BitSize>8</BitSize>
+				<BitOffs>0</BitOffs>
+				<Properties>
+					<Property>
+						<Name>TcDataArea</Name>
+						<Value>Input</Value>
+					</Property>
+				</Properties>
+			</SubItem>
+			<SubItem>
+				<Name>Ch2bBitIn</Name>
+				<Type GUID="{18071995-0000-0000-0000-000000000030}">BOOL</Type>
+				<BitSize>8</BitSize>
+				<BitOffs>8</BitOffs>
+				<Properties>
+					<Property>
+						<Name>TcDataArea</Name>
+						<Value>Input</Value>
+					</Property>
+				</Properties>
+			</SubItem>
+			<SubItem>
+				<Name>Ch3bBitIn</Name>
+				<Type GUID="{18071995-0000-0000-0000-000000000030}">BOOL</Type>
+				<BitSize>8</BitSize>
+				<BitOffs>16</BitOffs>
+				<Properties>
+					<Property>
+						<Name>TcDataArea</Name>
+						<Value>Input</Value>
+					</Property>
+				</Properties>
+			</SubItem>
+			<SubItem>
+				<Name>Ch4bBitIn</Name>
+				<Type GUID="{18071995-0000-0000-0000-000000000030}">BOOL</Type>
+				<BitSize>8</BitSize>
+				<BitOffs>24</BitOffs>
+				<Properties>
+					<Property>
+						<Name>TcDataArea</Name>
+						<Value>Input</Value>
+					</Property>
+				</Properties>
+			</SubItem>
+			<SubItem>
+				<Name>Ch5bBitIn</Name>
+				<Type GUID="{18071995-0000-0000-0000-000000000030}">BOOL</Type>
+				<BitSize>8</BitSize>
+				<BitOffs>32</BitOffs>
+				<Properties>
+					<Property>
+						<Name>TcDataArea</Name>
+						<Value>Input</Value>
+					</Property>
+				</Properties>
+			</SubItem>
+			<SubItem>
+				<Name>Ch6bBitIn</Name>
+				<Type GUID="{18071995-0000-0000-0000-000000000030}">BOOL</Type>
+				<BitSize>8</BitSize>
+				<BitOffs>40</BitOffs>
+				<Properties>
+					<Property>
+						<Name>TcDataArea</Name>
+						<Value>Input</Value>
+					</Property>
+				</Properties>
+			</SubItem>
+			<SubItem>
+				<Name>Ch7bBitIn</Name>
+				<Type GUID="{18071995-0000-0000-0000-000000000030}">BOOL</Type>
+				<BitSize>8</BitSize>
+				<BitOffs>48</BitOffs>
+				<Properties>
+					<Property>
+						<Name>TcDataArea</Name>
+						<Value>Input</Value>
+					</Property>
+				</Properties>
+			</SubItem>
+			<SubItem>
+				<Name>Ch8bBitIn</Name>
+				<Type GUID="{18071995-0000-0000-0000-000000000030}">BOOL</Type>
+				<BitSize>8</BitSize>
+				<BitOffs>56</BitOffs>
+				<Properties>
+					<Property>
+						<Name>TcDataArea</Name>
+						<Value>Input</Value>
+					</Property>
+				</Properties>
+			</SubItem>
+			<Hides>
+				<Hide GUID="{EEF4A4FD-049E-52D8-C83F-9F2E9361B2B0}"/>
+			</Hides>
+		</DataType>
+	</DataTypes>
+	<Project ProjectGUID="{DC325247-C5AB-41A4-A042-54DFC4C698DF}" Target64Bit="true" ShowHideConfigurations="#x106">
+		<System>
+			<Settings MaxCpus="8"/>
+			<Tasks>
+				<Task Id="4" Priority="1" CycleTime="10000" AmsPort="351" AdtTasks="true">
+					<Name>Task 1ms</Name>
+				</Task>
+				<Task Id="5" Priority="2" CycleTime="20000" AmsPort="352" AdtTasks="true">
+					<Name>Task 2ms</Name>
+				</Task>
+				<Task Id="6" Priority="3" CycleTime="100000" AmsPort="353" AdtTasks="true">
+					<Name>Task 10ms</Name>
+				</Task>
+			</Tasks>
+		</System>
+		<Plc>
+			<Project GUID="{C3E82ADE-5698-44B5-A77B-5238D715F459}" Name="Untitled1" PrjFilePath="Untitled1\Untitled1.plcproj" TmcFilePath="Untitled1\Untitled1.tmc" ReloadTmc="true" AmsPort="851" FileArchiveSettings="#x000e" SymbolicMapping="true">
+				<Instance Id="#x08502000" TcSmClass="TComPlcObjDef" KeepUnrestoredLinks="2" TmcPath="Untitled1\Untitled1.tmc">
+					<Name>Untitled1 Instance</Name>
+					<CLSID ClassFactory="TcPlc30">{08500001-0000-0000-F000-000000000064}</CLSID>
+					<Vars VarGrpType="1">
+						<Name>Task_10ms Inputs</Name>
+						<Var>
+							<Name>GVL.bVar1ms</Name>
+							<Type>BOOL</Type>
+						</Var>
+						<Var>
+							<Name>GVL.bVar2ms</Name>
+							<Type>BOOL</Type>
+						</Var>
+						<Var>
+							<Name>GVL.bVar10ms</Name>
+							<Type>BOOL</Type>
+						</Var>
+					</Vars>
+					<UnrestoredVarLinks ImportTime="2021-12-13T16:10:31">
+						<OwnerA Name="InputDst" Prefix="TIPC^Untitled1^Untitled1 Instance" Type="1">
+							<OwnerB Name="TIID^Device 1 (EtherCAT)^Term 1 (EK1200)^Term 5 (EL3064)">
+								<Link VarA="MAIN.stEL3064.MDP5001_300_Input^MDP5001_300_AI_Standard_Channel_1_Value" TypeA="INT" InOutA="0" ParentTypeA="MDP5001_300_I_ABBA883F" GuidA="{18071995-0000-0000-0000-000000000006}" VarB="AI Standard Channel 1^Value" RestoreInfo="ANotFound"/>
+								<Link VarA="MAIN.stEL3064.MDP5001_300_Input^MDP5001_300_AI_Standard_Channel_2_Value" TypeA="INT" InOutA="0" ParentTypeA="MDP5001_300_I_ABBA883F" GuidA="{18071995-0000-0000-0000-000000000006}" VarB="AI Standard Channel 2^Value" RestoreInfo="ANotFound"/>
+								<Link VarA="MAIN.stEL3064.MDP5001_300_Input^MDP5001_300_AI_Standard_Channel_3_Value" TypeA="INT" InOutA="0" ParentTypeA="MDP5001_300_I_ABBA883F" GuidA="{18071995-0000-0000-0000-000000000006}" VarB="AI Standard Channel 3^Value" RestoreInfo="ANotFound"/>
+								<Link VarA="MAIN.stEL3064.MDP5001_300_Input^MDP5001_300_AI_Standard_Channel_4_Value" TypeA="INT" InOutA="0" ParentTypeA="MDP5001_300_I_ABBA883F" GuidA="{18071995-0000-0000-0000-000000000006}" VarB="AI Standard Channel 4^Value" RestoreInfo="ANotFound"/>
+							</OwnerB>
+						</OwnerA>
+					</UnrestoredVarLinks>
+					<UnrestoredVarLinks ImportTime="2021-12-13T16:12:05">
+						<OwnerA Name="InputDst" Prefix="TIPC^Untitled1^Untitled1 Instance" Type="1">
+							<OwnerB Name="TIID^Device 1 (EtherCAT)^Term 1 (EK1200)^Term 2 (EL1008)">
+								<Link VarA="MAIN.stEL1008.bBitInCh1" TypeA="BOOL" InOutA="0" GuidA="{18071995-0000-0000-0000-000000000030}" VarB="Channel 1^Input" Size="1" RestoreInfo="ANotFound"/>
+								<Link VarA="MAIN.stEL1008.bBitInCh2" TypeA="BOOL" InOutA="0" GuidA="{18071995-0000-0000-0000-000000000030}" VarB="Channel 2^Input" Size="1" RestoreInfo="ANotFound"/>
+								<Link VarA="MAIN.stEL1008.bBitInCh3" TypeA="BOOL" InOutA="0" GuidA="{18071995-0000-0000-0000-000000000030}" VarB="Channel 3^Input" Size="1" RestoreInfo="ANotFound"/>
+								<Link VarA="MAIN.stEL1008.bBitInCh4" TypeA="BOOL" InOutA="0" GuidA="{18071995-0000-0000-0000-000000000030}" VarB="Channel 4^Input" Size="1" RestoreInfo="ANotFound"/>
+								<Link VarA="MAIN.stEL1008.bBitInCh5" TypeA="BOOL" InOutA="0" GuidA="{18071995-0000-0000-0000-000000000030}" VarB="Channel 5^Input" Size="1" RestoreInfo="ANotFound"/>
+								<Link VarA="MAIN.stEL1008.bBitInCh6" TypeA="BOOL" InOutA="0" GuidA="{18071995-0000-0000-0000-000000000030}" VarB="Channel 6^Input" Size="1" RestoreInfo="ANotFound"/>
+								<Link VarA="MAIN.stEL1008.bBitInCh7" TypeA="BOOL" InOutA="0" GuidA="{18071995-0000-0000-0000-000000000030}" VarB="Channel 7^Input" Size="1" RestoreInfo="ANotFound"/>
+								<Link VarA="MAIN.stEL1008.bBitInCh8" TypeA="BOOL" InOutA="0" GuidA="{18071995-0000-0000-0000-000000000030}" VarB="Channel 8^Input" Size="1" RestoreInfo="ANotFound"/>
+							</OwnerB>
+						</OwnerA>
+					</UnrestoredVarLinks>
+					<Contexts>
+						<Context>
+							<Id NeedCalleeCall="true">0</Id>
+							<Name>Task_10ms</Name>
+							<ManualConfig>
+								<OTCID>#x02010060</OTCID>
+							</ManualConfig>
+							<Priority>3</Priority>
+							<CycleTime>10000000</CycleTime>
+						</Context>
+					</Contexts>
+					<TaskPouOids>
+						<TaskPouOid Prio="3" OTCID="#x08502003"/>
+					</TaskPouOids>
+				</Instance>
+			</Project>
+		</Plc>
+		<Io>
+			<Device Id="1" Disabled="true" DevType="11" AmsPort="28673">
+				<Name>Device 1 (COM Port)</Name>
+				<AddressInfo>
+					<Io>
+						<Port>1016</Port>
+					</Io>
+				</AddressInfo>
+				<Image Id="1" AddrType="1" ImageType="1">
+					<Name>Image</Name>
+				</Image>
+				<Serial Baud="9600" Port="1016" Parity="1" StopBit="1" RsType="1" UPSDisableSysShutdown="true" WaitTimeToShutdown="60" DataSize="64" BufSize="64" DataBit="7" FifoSize="16" ComPortNo="1" Timeout="300"/>
+			</Device>
+		</Io>
+	</Project>
+</TcSmProject>

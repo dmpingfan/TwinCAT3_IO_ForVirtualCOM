@@ -1,0 +1,83 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4024.9">
+  <POU Name="PRG_10ms" Id="{db08171f-adc1-4570-8775-54830cad8d14}" SpecialFunc="None">
+    <Declaration><![CDATA[PROGRAM PRG_10ms
+VAR
+	fbVirtualCOM							:SerialLineControlADS;
+	fbComRec								:ReceiveData;
+	fbComSend							:SendData;
+	Delay									:TON;
+	
+	stCOMSerialConfig					:ComSerialConfig;	
+	TXBuffer,RXBuffer					:ComBuffer;	
+	aDataRec								:ARRAY[0..19] OF BYTE;
+	aDataSend								:ARRAY[0..19] OF BYTE;
+	bInit										:BOOL := TRUE;
+END_VAR
+]]></Declaration>
+    <Implementation>
+      <ST><![CDATA[stCOMSerialConfig.ComPort := 1;
+stCOMSerialConfig.Baudrate := 9600;
+stCOMSerialConfig.Parity := PARITY_EVEN;
+stCOMSerialConfig.DataBits := 7;
+stCOMSerialConfig.StopBits := STOPBITS_ONE;
+
+fbVirtualCOM(
+	Connect:= bInit, 
+	SerialCfg:= stCOMSerialConfig, 
+	NetId:= , 
+	Timeout:= , 
+	TxBuffer:= TXBuffer, 
+	RxBuffer:= RXBuffer, 
+	PortOpened=> , 
+	Error=> , 
+	ErrorID=> , 
+	Busy=> , 
+	TxBufCount=> , 
+	RxBufCount=> );
+
+Delay(IN:=NOT Delay.Q, PT := T#500MS);	
+IF Delay.Q AND fbVirtualCOM.PortOpened THEN	
+fbComSend(
+	pSendData:= ADR(aDataSend), 
+	Length:= SIZEOF(aDataSend), 
+	Busy=> , 
+	Error=> , 
+	TXbuffer:= TXBuffer);	
+END_IF
+	
+fbComRec(
+	pPrefix:= , 
+	LenPrefix:= , 
+	pSuffix:= , 
+	LenSuffix:= , 
+	pReceiveData:= ADR(aDataRec), 
+	SizeReceiveData:= SIZEOF(aDataRec), 
+	Timeout:= , 
+	Reset:= , 
+	DataReceived=> , 
+	busy=> , 
+	Error=> , 
+	RxTimeout=> , 
+	LenReceiveData=> , 
+	RXbuffer:= RXBuffer);]]></ST>
+    </Implementation>
+    <LineIds Name="PRG_10ms">
+      <LineId Id="140" Count="0" />
+      <LineId Id="142" Count="1" />
+      <LineId Id="141" Count="0" />
+      <LineId Id="145" Count="1" />
+      <LineId Id="125" Count="11" />
+      <LineId Id="123" Count="0" />
+      <LineId Id="169" Count="0" />
+      <LineId Id="161" Count="0" />
+      <LineId Id="171" Count="0" />
+      <LineId Id="163" Count="4" />
+      <LineId Id="48" Count="0" />
+      <LineId Id="172" Count="0" />
+      <LineId Id="162" Count="0" />
+      <LineId Id="50" Count="13" />
+      <LineId Id="49" Count="0" />
+    </LineIds>
+  </POU>
+</TcPlcObject>
